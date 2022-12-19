@@ -16,6 +16,6 @@ public interface ViewEmployeesRole {
     void employee();
 
     @MenuPolicy(menuIds = "Employee.browse")
-    @ScreenPolicy(screenIds = "Employee.browse")
+    @ScreenPolicy(screenIds = {"Employee.browse", "Employee.edit"})
     void screens();
 }

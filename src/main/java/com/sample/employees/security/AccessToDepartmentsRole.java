@@ -13,10 +13,10 @@ import io.jmix.securityui.role.annotation.ScreenPolicy;
 public interface AccessToDepartmentsRole {
     @EntityAttributePolicy(entityClass = Department.class, attributes = "notes", action = EntityAttributePolicyAction.MODIFY)
     @EntityAttributePolicy(entityClass = Department.class, attributes = {"id", "name", "internalPhoneNumber"}, action = EntityAttributePolicyAction.VIEW)
-    @EntityPolicy(entityClass = Department.class, actions = EntityPolicyAction.READ)
+    @EntityPolicy(entityClass = Department.class, actions = {EntityPolicyAction.READ, EntityPolicyAction.UPDATE})
     void department();
 
     @MenuPolicy(menuIds = "Department.browse")
-    @ScreenPolicy(screenIds = "Department.browse")
+    @ScreenPolicy(screenIds = {"Department.browse", "Department.edit"})
     void screens();
 }
